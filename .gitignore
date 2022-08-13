@@ -1,0 +1,15 @@
+# dependencies
+node_modules
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Keep environment variables out of version control
+.env
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+/build
