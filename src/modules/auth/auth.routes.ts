@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { signup } from "./auth.controller";
+import { login, signup } from "./auth.controller";
 import { $ref } from "./auth.schema";
 
 const authRoutes = async (fastify: FastifyInstance) => {
@@ -14,6 +14,19 @@ const authRoutes = async (fastify: FastifyInstance) => {
       },
     },
     signup
+  );
+
+  fastify.post(
+    "/login",
+    {
+      schema: {
+        body: $ref("loginSchema"),
+        response: {
+          200: $ref("loginResponseSchema"),
+        },
+      },
+    },
+    login
   );
 };
 export default authRoutes;
