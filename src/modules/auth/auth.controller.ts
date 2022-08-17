@@ -1,5 +1,4 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { fastify } from "../../server";
 import { verifyPassword } from "../../utils/hash";
 import { CreateUserInput, LoginInput } from "./auth.schema";
 import { createUser, findUserByEmail } from "./auth.service";
@@ -46,5 +45,5 @@ export const login = async (
 
   const { password, ...userWithoutPassword } = user;
 
-  return { accessToken: fastify.jwt.sign(userWithoutPassword) };
+  return { accessToken: request.jwt.sign(userWithoutPassword) };
 };
