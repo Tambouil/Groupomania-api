@@ -33,15 +33,20 @@ const envSchema = {
   },
 };
 
-fastify.register(fastifyEnv, {
+const envOptions = {
   schema: envSchema,
   dotenv: true,
   confKey: "config",
-});
+};
 
-fastify.register(jwt, {
-  secret: "mysecretpassword",
-});
+const initialize = async () => {
+  await fastify.register(fastifyEnv, envOptions);
+
+  await fastify.register(jwt, {
+    secret: fastify.config.JWT_SECRET_KEY,
+  });
+};
+initialize();
 
 fastify.decorate(
   "authenticate",
@@ -54,9 +59,9 @@ fastify.decorate(
   }
 );
 
-fastify.addHook("onRequest", (request, reply, next) => {
+fastify.addHook("onRequest", (request, reply, done) => {
   request.jwt = fastify.jwt;
-  return next();
+  return done();
 });
 
 /** healthckek endpoint **/
