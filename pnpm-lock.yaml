@@ -1,13 +1,13 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@fastify/env': ^4.1.0
   '@fastify/jwt': ^6.3.2
   '@prisma/client': ^4.2.1
   '@types/bcrypt': ^5.0.0
   '@types/node': ^18.7.3
   bcrypt: ^5.0.1
   env-cmd: ^10.1.0
+  env-schema: ^5.0.0
   fastify: ^4.4.0
   fastify-zod: ^1.1.0
   ts-node-dev: ^2.0.0
@@ -15,10 +15,10 @@ specifiers:
   zod: ^3.18.0
 
 dependencies:
-  '@fastify/env': 4.1.0
   '@fastify/jwt': 6.3.2
   '@prisma/client': 4.2.1
   bcrypt: 5.0.1
+  env-schema: 5.0.0
   fastify: 4.4.0
   fastify-zod: 1.1.0_fastify@4.4.0+jest@28.1.3
   zod: 3.18.0
@@ -383,13 +383,6 @@ packages:
 
   /@fastify/deepmerge/1.1.0:
     resolution: {integrity: sha512-E8Hfdvs1bG6u0N4vN5Nty6JONUfTdOciyD5rn8KnEsLKIenvOVcr210BQR9t34PRkNyjqnMLGk3e0BsaxRdL+g==}
-    dev: false
-
-  /@fastify/env/4.1.0:
-    resolution: {integrity: sha512-9l+JTUiFWSwb9dGSeR46aDWBjrAg8lJeqMjbotG5/8Ho90+qzRbt8kdSnVhLm5k6HcqXcBaBAT/6cImRhRq0VQ==}
-    dependencies:
-      env-schema: 5.0.0
-      fastify-plugin: 4.2.0
     dev: false
 
   /@fastify/error/3.0.0:

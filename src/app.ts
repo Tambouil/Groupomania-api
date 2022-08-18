@@ -22,31 +22,31 @@ const fastify = Fastify({
 });
 
 /** jwt plugin **/
-const envSchema = {
-  type: "object",
-  required: ["JWT_SECRET_KEY"],
-  properties: {
-    JWT_SECRET_KEY: {
-      type: "string",
-      default: "mysecretpassword",
-    },
-  },
-};
+// const envSchema = {
+//   type: "object",
+//   required: ["JWT_SECRET_KEY"],
+//   properties: {
+//     JWT_SECRET_KEY: {
+//       type: "string",
+//       default: "mysecretpassword",
+//     },
+//   },
+// };
 
-const envOptions = {
-  schema: envSchema,
-  dotenv: true,
-  confKey: "config",
-};
+// const envOptions = {
+//   schema: envSchema,
+//   dotenv: true,
+//   confKey: "config",
+// };
 
-const initialize = async () => {
-  await fastify.register(fastifyEnv, envOptions);
+// const initialize = async () => {
+//   await fastify.register(fastifyEnv, envOptions);
 
-  await fastify.register(jwt, {
-    secret: fastify.config.JWT_SECRET_KEY,
-  });
-};
-initialize();
+//   await fastify.register(jwt, {
+//     secret: fastify.config.JWT_SECRET_KEY,
+//   });
+// };
+// initialize();
 
 fastify.decorate(
   "authenticate",
