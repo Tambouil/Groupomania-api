@@ -13,3 +13,6 @@ Thumbs.db
 /tmp
 /out-tsc
 /build
+
+#images uploaded
+**/images
