@@ -1,11 +1,5 @@
 import envSchema from "env-schema";
-
-interface Env {
-  PORT: number;
-  HOST: string;
-  DATABASE_URL: string;
-  JWT_SECRET_KEY: string;
-}
+import { Env } from "./interfaces";
 
 const schema = {
   type: "object",

@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@fastify/jwt': ^6.3.2
+  '@fastify/static': ^6.5.0
   '@prisma/client': ^4.2.1
   '@types/bcrypt': ^5.0.0
   '@types/node': ^18.7.3
@@ -16,6 +17,7 @@ specifiers:
 
 dependencies:
   '@fastify/jwt': 6.3.2
+  '@fastify/static': 6.5.0
   '@prisma/client': 4.2.1
   bcrypt: 5.0.1
   env-schema: 5.0.0

@@ -8,15 +8,18 @@ const userCore = {
       invalid_type_error: "Email must be a string",
     })
     .email(),
-  username: z.string(),
+  username: z.string().trim().max(32),
 };
 
 const createUserSchema = z.object({
   ...userCore,
-  password: z.string({
-    required_error: "Password is required",
-    invalid_type_error: "Password must be a string",
-  }),
+  password: z
+    .string({
+      required_error: "Password is required",
+      invalid_type_error: "Password must be a string",
+    })
+    .min(6)
+    .max(32),
 });
 
 const createUserResponseSchema = z.object({
@@ -41,9 +44,12 @@ const loginResponseSchema = z.object({
 export type CreateUserInput = z.infer<typeof createUserSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
 
-export const { schemas: userSchemas, $ref } = buildJsonSchemas({
-  createUserSchema,
-  createUserResponseSchema,
-  loginSchema,
-  loginResponseSchema,
-});
+export const { schemas: userSchemas, $ref } = buildJsonSchemas(
+  {
+    createUserSchema,
+    createUserResponseSchema,
+    loginSchema,
+    loginResponseSchema,
+  },
+  { $id: "Auth" }
+);
