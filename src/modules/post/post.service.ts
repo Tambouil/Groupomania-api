@@ -1,11 +1,19 @@
+import { FilesObject } from "fastify-multer/lib/interfaces";
 import prisma from "../../utils/prisma";
 import { CreatePostInput } from "./post.schema";
 
 export const createPost = async (
-  data: CreatePostInput & { authorId: number }
+  data: CreatePostInput,
+  file: FilesObject,
+  authorId: number
 ) => {
+  const { content } = data;
   return prisma.post.create({
-    data,
+    data: {
+      content,
+      authorId,
+      ...(file && { media: `images/posts/${file.filename}` }),
+    },
   });
 };
 

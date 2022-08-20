@@ -1,9 +1,10 @@
 import { JWT } from "@fastify/jwt";
-import "@fastify/jwt";
+import { FilesObject } from "fastify-multer/lib/interfaces";
 
 declare module "fastify" {
   export interface FastifyRequest {
     jwt: JWT;
+    file: FilesObject;
   }
   export interface FastifyInstance {
     authenticate: (

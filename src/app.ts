@@ -3,6 +3,7 @@ import jwt from "@fastify/jwt";
 import { config } from "./utils/config";
 import fastifyStatic from "@fastify/static";
 import path from "path";
+import multer from "fastify-multer";
 
 const fastify = Fastify({
   logger: true,
@@ -10,9 +11,12 @@ const fastify = Fastify({
 
 /** static folder plugin **/
 fastify.register(fastifyStatic, {
-  root: path.join(__dirname, "public"),
+  root: path.join(__dirname, "../public"),
   prefix: "/public/",
 });
+
+/** multer plugin **/
+fastify.register(multer.contentParser);
 
 /** jwt plugin **/
 fastify.register(jwt, {

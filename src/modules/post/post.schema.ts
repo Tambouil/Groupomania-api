@@ -3,7 +3,7 @@ import { z } from "zod";
 
 const postInput = {
   content: z.string().trim().max(255),
-  media: z.string().optional(),
+  file: z.string().optional(),
 };
 const postGenerated = {
   id: z.string(),

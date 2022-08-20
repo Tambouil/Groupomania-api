@@ -8,10 +8,12 @@ export const createPost = async (
   }>,
   reply: FastifyReply
 ) => {
-  const post = await postsService.createPost({
-    ...request.body,
-    authorId: request.user.id,
-  });
+  const post = await postsService.createPost(
+    request.body,
+    request.file,
+    request.user.id
+  );
+
   return post;
 };
 
